@@ -40,10 +40,10 @@ describe('Integration creation', function () {
     it('should create a user', function (done) {
         request(app)
             .post('/user')
-            .send({name: 'bert'})
+            .send({name: 'bert', pin: "1234"})
             .expect('Content-Type', /application\/json/)
             .expect(201)
-            .expect('{"id":1,"name":"bert","balance":0,"lastTransaction":null}', done);
+            .expect('{"id":1,"name":"bert","pin":"1234","balance":0,"lastTransaction":null}', done);
     });
 
     it('create should fail without a name', function (done) {

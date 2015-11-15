@@ -34,7 +34,7 @@ describe('List tests', function () {
             .get('/user')
             .expect('Content-Type', /application\/json/)
             .expect(200)
-            .expect('{"overallCount":2,"limit":null,"offset":null,"entries":[{"id":1,"name":"foo","balance":3,"lastTransaction":"2014-01-01 00:23:44"},{"id":2,"name":"bar","balance":2,"lastTransaction":"2014-01-01 00:23:46"}]}', done);
+            .expect('{"overallCount":2,"limit":null,"offset":null,"entries":[{"id":1,"name":"foo","pin":null,"balance":3,"lastTransaction":"2014-01-01 00:23:44"},{"id":2,"name":"bar","pin":null,"balance":2,"lastTransaction":"2014-01-01 00:23:46"}]}', done);
     });
 
     it('should return a empty list b/c of limit+offset', function (done) {
@@ -50,7 +50,7 @@ describe('List tests', function () {
             .get('/user/1')
             .expect('Content-Type', /application\/json/)
             .expect(200)
-            .expect('{"id":1,"name":"foo","balance":3,"lastTransaction":"2014-01-01 00:23:44","transactions":[{"id":3,"userId":1,"createDate":"2014-01-01 00:23:44","value":1},{"id":2,"userId":1,"createDate":"2014-01-01 00:23:43","value":1},{"id":1,"userId":1,"createDate":"2014-01-01 00:23:42","value":1}]}', done);
+            .expect('{"id":1,"name":"foo","pin":null,"balance":3,"lastTransaction":"2014-01-01 00:23:44","transactions":[{"id":3,"userId":1,"createDate":"2014-01-01 00:23:44","value":1},{"id":2,"userId":1,"createDate":"2014-01-01 00:23:43","value":1},{"id":1,"userId":1,"createDate":"2014-01-01 00:23:42","value":1}]}', done);
     });
 
     it('should return a failure when user does not exist', function (done) {
